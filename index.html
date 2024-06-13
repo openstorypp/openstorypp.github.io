@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Maple">
+  <meta name="keywords" content="Maple">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maple: Multi-modal Pre-training for Contextual Instance-aware Visual Generation</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/maple_image/icon.png">
+
+
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 2px solid #F1F4F5;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(3n - 1) {
+      background-color: #F1F4F5;
+    }
+
+    tr:nth-child(3n) {
+      border: 2px solid #FFFFFF;
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              <font color="black">Maple
+              </font>: <br> Multi-modal Pre-training for Contextual Instance-aware Visual Generation
+            </h1>
+            <!-- <div class="is-size-5 publication-authors"> -->
+            <!-- <span class="author-block"> -->
+            <!-- <a href="https://www.linkedin.com/in/levonkhachatryan">Levon Khachatryan</a><sup>1*</sup>,</span> -->
+            <!-- <span class="author-block">
+              <a href="https://www.linkedin.com/in/andranik-movsisyan-4528a51a2">Andranik Movsisyan</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/vtadevosian">Vahram Tadevosyan</a><sup>1*</sup>,</span>
+            </span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/dr-ing-roberto-henschel-6aa1ba176">Roberto Henschel</a><sup>1*</sup>,</span>
+            </span><br>
+            <span class="author-block">
+              <a href="https://www.ece.utexas.edu/people/faculty/atlas-wang">Zhangyang Wang</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/shant-navasardyan-1302aa149">Shant Navasardyan</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.humphreyshi.com">Humphrey Shi</a><sup>1,3,4,5</sup>
+            </span> -->
+            <!-- </div> -->
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup></sup>Anonymous NeurIPS submission</span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup></sup>Paper ID 1791</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv (coming soon)</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (coming soon)</span>
+                  </a>
+                </span>
+                <!-- Dataset Link. -->
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="./static/maple_image/hf.png" alt="Button Image">
+                    </span>
+                    <span>Demo (coming soon)</span>
+                  </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img id="teaser" autoplay muted loop playsinline height="100%" src="./static/maple_image/Figure1_new.png"
+          style="width:100%;height:540px;">
+        <p class="subtitle has-text-centered">
+          Visualization result of Maple in visual story generation.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Generative multi-modal models have recently drawn increasing attention, driven by their critical impacts
+              on granularity-diverse conversations. Despite the high quality in images generated with short captions,
+              most of them deteriorate drastically when long context with multiple instances are provided. The resulting
+              instances in the generated images are hard to be consistent with those in former images. This attributes
+              to the models' weakness in capturing the features of these instances sparsely located in the long input
+              sequence. To address this issue, we propose Maple, a large-scale open-domain generative multi-modal model.
+              Maple is able to take long context with interleaved images and text as guidance to generate images and
+              keep the instances in the generated image consistent with the given inputs. This is realized by a training
+              schedule focused on instance-level consistency, and a long-context decoupling mechanism to balance
+              contextual information of different importance. Specifically, (1) we introduce a new image generation
+              approach that utilizes instances as extra inputs to emphasize their features in the multi-modal context,
+              enhancing instance-level consistency. To train this model, we provide an extensive open-domain dataset
+              with recurring instances across image sequences. We also propose a multi-stage training strategy, evolving
+              from instance-grounded single-round generation to multi-modal context-aware multi-turn generation. (2) We
+              decouple the multi-modal context into two inputs, the highly related current caption and the broader
+              multi-modal context with low information density, allowing for differential prioritization through a
+              tailored attention mechanism within the UNet of diffusion model. This mechanism refines the attention to
+              focus on instance-level features relevant to current instructions when perceiving multimodal context.
+              Remarkably, the proposed Maple exhibits superior performance to generate high-quality images which are
+              more coherent to the inputs and outperforms current state-of-the-art multi-modal visual generators in
+              contextual visual consistency.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- Paper video. -->
+      <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+
+      <!-- <video id="teaser" autoplay muted loop playsinline height="100%"> -->
+      <!-- <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 height="100%">
+      <source src="./static/videos/main_video_compressed.mp4"
+              type="video/mp4">
+    </video> -->
+
+      <!--/ Paper video. -->
+    </div>
+  </section>
+
+
+  <section class="section" id="Method">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Method</h2>
+      <section class="hero method">
+        <div class="container is-max-desktop">
+          <div class="hero-body">
+            <img id="method" autoplay muted loop playsinline height="100%"
+              src="./static/maple_image/training_method.svg" style="width:100%;height:100%;">
+            <p>
+          </div>
+        </div>
+        <div class="hero-body">
+          <img id="method" autoplay muted loop playsinline height="100%" src="./static/maple_image/fig2.png"
+            style="width:100%;height:100%;">
+          <p> Overview of the interleaved image-text generation: Both the image and text are produced
+            by the MLLM. During image generation, we have enhanced the system with a visual detokenizer
+            based on the diffusion model </p>
+        </div>
+      </section>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- <section class="section" id='RelatedLinks'>
+  <div class="container is-max-desktop content">
+    <h2 class="title">Related Links</h2>
+
+    <ul>
+      <li><a href="https://ommer-lab.com/research/latent-diffusion-models/"> High-Resolution Image Synthesis with Latent Diffusion Models (a.k.a. LDM & Stable Diffusion)</a></li>
+      <li><a href="https://www.timothybrooks.com/instruct-pix2pix/"> InstructPix2Pix: Learning to Follow Image Editing Instructions</a></li>
+      <li><a href="https://github.com/lllyasviel/ControlNet"> Adding Conditional Control to Text-to-Image Diffusion Models (a.k.a ControlNet)</a></li>
+    </ul>
+    <!-- <div class="content has-text-justified">
+      <p>
+        There's a lot of excellent work that was introduced around the same time as ours.
+      </p>
+      <p>
+        <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
+      </p>
+      <p>
+        <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
+        both use deformation fields to model non-rigid scenes.
+      </p>
+      <p>
+        Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
+      </p>
+      <p>
+        There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
+      </p>
+    </div> -->
+  </div>
+  </section>
+  </div>
+  </section> -->
+
+
+  <!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <p> If you use our work in your research, please cite our publication: </p>
+    <pre><code>@article{text2video-zero,
+    title={Text2Video-Zero: Text-to-Image Diffusion Models are Zero-Shot Video Generators},
+    author={Khachatryan, Levon and Movsisyan, Andranik and Tadevosyan, Vahram and Henschel, Roberto and Wang, Zhangyang and Navasardyan, Shant and Shi, Humphrey},
+    journal={arXiv preprint arXiv:2303.13439},
+    year={2023}
+  }
+    </code></pre>
+  </div>
+</section> -->
+  <!-- 
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://arxiv.org/pdf/2303.13439.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/Picsart-AI-Research/Text2Video-Zero" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website adapted from the following <a href="https://github.com/nerfies/nerfies.github.io">template</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer> -->
+
+</body>
+
+</html>
