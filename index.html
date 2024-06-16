@@ -3,10 +3,11 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Maple">
-  <meta name="keywords" content="Maple">
+  <meta name="description" content="Openstory++">
+  <meta name="keywords" content="Openstory++">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Maple: Multi-modal Pre-training for Contextual Instance-aware Visual Generation</title>
+  <title>Openstory++ : A Large-scale Dataset and Benchmark for Instance-aware Open-domain
+    Visual Storytelling</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -32,7 +33,7 @@
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/maple_image/icon.png">
+  <link rel="icon" href="./static/openstorypp_image/pipeline.png">
 
 
   <style>
@@ -73,8 +74,8 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">
-              <font color="black">Maple
-              </font>: <br> Multi-modal Pre-training for Contextual Instance-aware Visual Generation
+              <font color="black">Openstory++ : A Large-scale Dataset and Benchmark for Instance-aware Open-domain
+                Visual Storytelling</font>
             </h1>
             <!-- <div class="is-size-5 publication-authors"> -->
             <!-- <span class="author-block"> -->
@@ -99,7 +100,7 @@
             <!-- </div> -->
 
             <div class="is-size-5 publication-authors">
-              <span class="author-block"><sup></sup>Anonymous NeurIPS submission</span>
+              <span class="author-block"><sup></sup>Anonymous NeurIPS Datasets and Benchmarks Track submission</span>
             </div>
             <div class="is-size-5 publication-authors">
               <span class="author-block"><sup></sup>Paper ID 1791</span>
@@ -112,7 +113,7 @@
                     <span class="icon">
                       <i class="ai ai-arxiv"></i>
                     </span>
-                    <span>arXiv (coming soon)</span>
+                    <span>arXiv</span>
                   </a>
                 </span>
                 <!-- Video Link. -->
@@ -131,16 +132,16 @@
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
-                    <span>Code (coming soon)</span>
+                    <span>Code</span>
                   </a>
                 </span>
                 <!-- Dataset Link. -->
                 <span class="link-block">
                   <a href="" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
-                      <img src="./static/maple_image/hf.png" alt="Button Image">
+                      <img src="./static/hf.png" alt="Button Image">
                     </span>
-                    <span>Demo (coming soon)</span>
+                    <span>Dataset</span>
                   </a>
               </div>
 
@@ -154,10 +155,13 @@
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <img id="teaser" autoplay muted loop playsinline height="100%" src="./static/maple_image/Figure1_new.png"
+        <img id="teaser" autoplay muted loop playsinline height="100%" src="./static/openstorypp_image/figure1.png"
           style="width:100%;height:540px;">
         <p class="subtitle has-text-centered">
-          Visualization result of Maple in visual story generation.</p>
+          The visualization of our dataset. On the left is a data case with visual annotation that corresponds to each
+          entity word in the sentence, where different color stands for different instance visual annotations, and on
+          the right is the general pipeline of our dataset annotation process.
+        </p>
       </div>
     </div>
   </section>
@@ -171,27 +175,27 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Generative multi-modal models have recently drawn increasing attention, driven by their critical impacts
-              on granularity-diverse conversations. Despite the high quality in images generated with short captions,
-              most of them deteriorate drastically when long context with multiple instances are provided. The resulting
-              instances in the generated images are hard to be consistent with those in former images. This attributes
-              to the models' weakness in capturing the features of these instances sparsely located in the long input
-              sequence. To address this issue, we propose Maple, a large-scale open-domain generative multi-modal model.
-              Maple is able to take long context with interleaved images and text as guidance to generate images and
-              keep the instances in the generated image consistent with the given inputs. This is realized by a training
-              schedule focused on instance-level consistency, and a long-context decoupling mechanism to balance
-              contextual information of different importance. Specifically, (1) we introduce a new image generation
-              approach that utilizes instances as extra inputs to emphasize their features in the multi-modal context,
-              enhancing instance-level consistency. To train this model, we provide an extensive open-domain dataset
-              with recurring instances across image sequences. We also propose a multi-stage training strategy, evolving
-              from instance-grounded single-round generation to multi-modal context-aware multi-turn generation. (2) We
-              decouple the multi-modal context into two inputs, the highly related current caption and the broader
-              multi-modal context with low information density, allowing for differential prioritization through a
-              tailored attention mechanism within the UNet of diffusion model. This mechanism refines the attention to
-              focus on instance-level features relevant to current instructions when perceiving multimodal context.
-              Remarkably, the proposed Maple exhibits superior performance to generate high-quality images which are
-              more coherent to the inputs and outperforms current state-of-the-art multi-modal visual generators in
-              contextual visual consistency.
+              Recent image generation models excel at creating high-quality images from brief captions. However, they
+              fail to maintain consistency of multiple instances across images when encountering lengthy contexts. This
+              inconsistency is largely due to in existing training datasets the absence of granular instance feature
+              labeling in existing training datasets. To tackle these issues, we introduce <b>Openstory++</b>, a large
+              scale dataset combining additional instance-level annotations with both images and text.
+              This dataset can be utilized to train multi-modal generated models, allowing for the training of
+              instance-focused story visualization models.
+              Furthermore, we develop a tailored training methodology that emphasizes entity-centric image-text
+              generation, ensuring that the models learn to effectively interweave visual and textual information.
+              Specifically, Openstory++ streamlines the process of keyframe extraction from open-domain videos,
+              employing vision-language models to generate captions that are then polished by a large language model for
+              narrative continuity. It surpasses previous datasets by offering a more expansive open-domain resource,
+              which incorporates automated captioning, high-resolution imagery tailored for instance count, and
+              extensive frame sequences for temporal consistency. Additionally, we present <b>Cohere-Bench</b>, a
+              pioneering benchmark framework for evaluating the image generation tasks when long multimodal context is
+              provided, including the ability to keep the background, style, instances in the given context coherent.
+              Compared to existing benchmarks, our work fills critical gaps in multi-modal generation, propelling the
+              development of models that can adeptly generate and interpret complex narratives in open-domain
+              environments. Experiments conducted within Cohere-Bench confirm the superiority of Openstory++ in
+              nurturing high-quality visual storytelling models, enhancing their ability to address sophisticated and
+              open-domain generation tasks.
             </p>
           </div>
         </div>
@@ -231,18 +235,26 @@
       <section class="hero method">
         <div class="container is-max-desktop">
           <div class="hero-body">
-            <img id="method" autoplay muted loop playsinline height="100%"
-              src="./static/maple_image/training_method.svg" style="width:100%;height:100%;">
-            <p>
+            <img id="method" autoplay muted loop playsinline height="100%" src="./static/openstorypp_image/pipeline.png"
+              style="width:100%;height:100%;">
+            <p>This figure showcases the workflow of our pipeline. After obtaining a sequence of frames devoid of
+              redundancy, we first utilized BLIP2 to generate basic image captions. Subsequently, Video-LLaVA was
+              employed to produce a sequence of captions that encapsulate the narrative flow. Guided by the sequence
+              caption, a LLM was prompted to align the entities in the image captions, thus enhancing the narrative
+              coherence across consecutive frames. Next, YOLO-World was applied to detect bounding boxes for the
+              entities. To ensure that labels for the same entities across frames are unique and consistent, we blended
+              the bounding box labels with the assistance of Dino and a facial feature module. Finally, we employed
+              EfficientVIT-SAM to obtain the masks for the entities, thereby providing a comprehensive understanding of
+              the spatial extent and characteristics of each entity within the frames.</p>
           </div>
         </div>
-        <div class="hero-body">
+        <!-- <div class="hero-body">
           <img id="method" autoplay muted loop playsinline height="100%" src="./static/maple_image/fig2.png"
             style="width:100%;height:100%;">
           <p> Overview of the interleaved image-text generation: Both the image and text are produced
             by the MLLM. During image generation, we have enhanced the system with a visual detokenizer
             based on the diffusion model </p>
-        </div>
+        </div> -->
       </section>
     </div>
   </section>
